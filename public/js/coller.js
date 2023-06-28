@@ -250,7 +250,7 @@ async function buyItem(id){
     await fetch(`/coller/${id}`)
     .then((res) => res.json())
     .then(data => {
-        buyItems.push({name: data.name, price: data.price, image: data.image})
+        buyItems.push({name: data.name, price: data.price, image: data.image, count: 1})
         refreshCartPanel()
     })
 }
@@ -271,10 +271,11 @@ function refreshCartPanel(){
         `<div class="cart-item">
             <img src="${data.image}"/>
             <p>${data.name}</p>
+            <input type="number" min="1" id="cart-item-count" value="${data.count}" onchange="buyItems[${index}].count = this.value"/>
             <p>${data.price}$</p>
             <button class="cancel-button" onclick="deleteBuyItem(${index})">Видалити</button>
         </div>`
-        sum += data.price
+        sum += data.price * data.count
         index++
     }
     document.getElementById('total-price').innerText = `Усього: ${sum}$`
