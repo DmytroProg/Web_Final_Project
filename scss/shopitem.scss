@@ -1,0 +1,121 @@
+$main-color: #107C10;
+$back-color: #23272F;
+$active-main: #9BF00B;
+$border-color: #7F8899;
+
+$item-height: 380px;
+
+.shop-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-item{
+    // min-width: 250px;
+    // max-width: 350px;
+    height: $item-height;
+    padding: 10px;
+    background-color: #fff;
+    // margin: 20px;
+    border: 0px solid;
+    border-color: transparent;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: .3s, position .3s .3s;
+    &:hover{
+        border: 4px solid;
+        transition: .3s, size .3s .3s;
+        border-color: $main-color;
+    }
+
+}
+
+.shop-item > img{
+    object-fit: cover;
+    height: calc($item-height / 3 * 2 - 20px);
+}
+
+.shop-item-info{
+    margin-top: 10px;
+}
+
+.shop-item-info > h3{
+    color: #000;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.shop-item-info > .discount{
+    text-decoration: line-through;
+    font-size: 14px;
+    color: grey;
+}
+
+.shop-footer{
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-footer > .price{
+    font-size: 26px;
+    margin: 10px 0;
+    color: red;
+}
+
+.shop-footer > .cart-btn{
+    color: $border-color;
+    &:hover{
+        color:$main-color;
+    }
+}
+
+.new-item{
+    height: $item-height;
+    background-color: rgb(180, 178, 178, .5);
+    border-radius: 10px;
+    border: 1px dashed $back-color;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s linear;
+    &:hover{
+        opacity: .3;
+        background-color: $back-color;
+        color: #fff;
+    }
+}
+
+.new-item .plus-icon{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.new-item .arrow{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $border-color;
+    display: block;
+}
+
+.new-item .arrow:first-child{
+    transform: rotate(90deg);
+}
+
+.new-item p{
+    margin-top: 10px;
+    color: $border-color;
+}

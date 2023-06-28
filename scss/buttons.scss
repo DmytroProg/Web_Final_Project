@@ -1,0 +1,71 @@
+$main-color: #107C10;
+$back-color: #23272F;
+$active-main: #19B516;
+$border-color: #7F8899;
+$red-color: red;
+
+.button{
+    padding: 10px 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all ease .3s;
+}
+
+.green-btn{
+    background-color: $main-color;
+    min-width: 112px;
+}
+
+@mixin formbutton($color){
+    border: 0px solid black;
+    border-radius: 5px;
+    background-color: $color;
+    color: white;
+    font-size: 20px;
+}
+
+.confirm-button{
+    @include formbutton($main-color);
+}
+
+.confirm-button:hover{
+    background-color: $active-main;
+}
+
+.cancel-button{
+    @include formbutton(crimson);
+}
+
+.cancel-button:hover{
+    background-color: red;
+}
+
+.red-btn{
+    border-radius: 20px;
+    padding: 3px;
+    margin-left: 5px;
+    align-self: center;
+    text-align: center;
+    height: 30px;
+    min-width: 30px;
+    transition: all ease .3s;
+    background-color: $red-color;
+}
+
+.green-btn:hover{
+    background-color: $active-main;
+}
+
+#search{
+    font-size: 16px;
+    padding-left: 7px;
+    width: 250px;
+    outline: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+}
+
+#search:focus{
+    border: 1px solid $active-main;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/shopitem.css">
+    <link rel="stylesheet" href="css/burgermenu.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Coolers</title>
+</head>
+<body>
+    <nav>
+       <div class="nav-container">
+        <div class="icon">
+            <img src="img/logo.png" alt="icon">
+        </div>
+        <div class="navbar navbar-dark">
+            <button class="navbar-toggler close" type="button" data-toggle="collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-container-info">
+            <div class="search-bar nav-item">
+                <input type="search" placeholder="Я шукаю..." id="search">
+                <div class="button green-btn" id="searchBtn">Знайти
+                    <svg class="search-icon-inner" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="16px" height="16px"><path stroke="white" fill="white" d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"/></svg>
+                </div>
+                <div class="red-btn" onclick="hideSearchBar()">
+                    X
+                </div>
+            </div>
+            <div class="search-icon nav-item search-icon-outer" onclick="showSearchBar()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon"  viewBox="0 0 50 50" width="32px" height="32px"><path stroke="white" fill="white" d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"/></svg>
+            </div>
+            
+            <div class="account-icon nav-item" onclick="openLogin()">
+                <svg class="svg-icon" viewBox="0 0 20 20" width="32">
+                    <path fill="none" stroke="white" d="M10,10.9c2.373,0,4.303-1.932,4.303-4.306c0-2.372-1.93-4.302-4.303-4.302S5.696,4.223,5.696,6.594C5.696,8.969,7.627,10.9,10,10.9z M10,3.331c1.801,0,3.266,1.463,3.266,3.263c0,1.802-1.465,3.267-3.266,3.267c-1.8,0-3.265-1.465-3.265-3.267C6.735,4.794,8.2,3.331,10,3.331z"></path>
+                    <path fill="none" stroke="white" d="M10,12.503c-4.418,0-7.878,2.058-7.878,4.685c0,0.288,0.231,0.52,0.52,0.52c0.287,0,0.519-0.231,0.519-0.52c0-1.976,3.132-3.646,6.84-3.646c3.707,0,6.838,1.671,6.838,3.646c0,0.288,0.234,0.52,0.521,0.52s0.52-0.231,0.52-0.52C17.879,14.561,14.418,12.503,10,12.503z"></path>
+                </svg> 
+                <p style="margin-bottom: 0;" id="userNameLabel"></p>   
+            </div>
+            <div class="cart-icon nav-item" id="cart-img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"> <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> </svg>
+                <div id="items-count">
+                    <p id="countOfItems">1</p>
+                </div>
+            </div>
+            <div id="cart-panel">
+                <div id="cart-container">
+                </div>
+                <div id="cart-footer">
+                    <button class="confirm-button" id="orderBtn" onclick="">Замовити</button>
+                    <p id="total-price">Усього: 0$</p>
+                </div>
+            </div>
+        </div>
+       </div>
+    </nav>
+
+    <div id="modal-panel-back" class="back-panel" onclick="closeModalPanel()">
+    </div>
+    <div id="modal-panel" class="modal-class">
+        <div class="mheader">
+            <p>Cooling system options</p>
+            <div class="mclose" onclick="closeModalPanel()">
+                <span class="mline mline-1"></span>
+                <span class="mline mline-2"></span>
+            </div>
+        </div>
+        <hr>
+        <div class="mcontent">
+            <form id="modalForm">
+                <input type="hidden" name="collerId" id="collerId">
+                <input type="hidden" name="oldCloudinaryPublicId" id="oldCloudinaryPublicId">
+                <input type="hidden" name="oldImagePath" id="oldImagePath">
+                <label for="item-name">Назва</label>
+                <input type="text" id="item-name" name="collerName">
+                <label for="price">Ціна</label>
+                <input type="number" min="0" id="price" name="collerPrice">
+                <label for="creator">Країна-виробник</label>
+                <input type="text" id="creator" name="collerOwner">
+                <label for="cooling_type">Тип</label>
+                <select id="cooling_type" name="collerType">
+                    <option value="air">Повітряна</option>
+                    <option value="water">Водяна</option>
+                </select>
+                <label for="power">Розсіювальна потужність (Вт)</label>
+                <input type="number" min="0" id="power" name="collerPower">
+                <label for="loud">Рівень шуму (Дб)</label>
+                <input type="number" min="0" id="loud" name="collerLoud">
+                <label for="material">Матеріал</label>
+                <select id="material" name="collerMaterial">
+                    <option value="aluminium">Алюміній</option>
+                    <option value="cuprum">Мідь</option>
+                    <option value="iron">Залізо</option>
+                </select>
+                <img src="" alt="photo" id="formImage">
+                <label class="smaller" for="photo_pick">Виберіть файл нижче</label>
+                <input id="photo_pick" type="file" name="collerImage" onchange="document.getElementById('formImage').src = window.URL.createObjectURL(this.files[0])">
+            </form>
+        </div>
+        <div class="mfooter">
+            <button class="confirm-button" onclick="confirmModal()">Confirm</button>
+            <button class="cancel-button" id="deleteBtn">Delete</button>
+        </div>
+    </div>
+
+    <div id="login-panel-back" class="back-panel" onclick="closeLogin()">
+    </div>
+    <div id="loginPanel" class="modal-class">
+        <div class="mheader">
+            <p>Login</p>
+            <div class="mclose" onclick="closeLogin()">
+                <span class="mline mline-1"></span>
+                <span class="mline mline-2"></span>
+            </div>
+        </div>
+        <hr>
+        <div class="mcontent">
+            <form id="loginForm">
+                <label for="login">Логін</label>
+                <input type="text" id="loginInput" name="login">
+                <label for="password">Пароль</label>
+                <input type="password" id="passwordInput" name="password">
+            </form>
+        <hr>
+        <div class="mfooter">
+            <button class="login-button" onclick="confirmLoginForm()">Log in</button>
+            <button class="signup-button" onclick="closeLogin(); openSignup()">Sign up</button>
+        </div>
+        </div>
+    </div>
+
+    <div id="signup-panel-back" class="back-panel" onclick="closeSignup()">
+    </div>
+    <div id="signupPanel" class="modal-class">
+        <div class="mheader">
+            <p>Sign Up</p>
+            <div class="mclose" onclick="closeSignup()">
+                <span class="mline mline-1"></span>
+                <span class="mline mline-2"></span>
+            </div>
+        </div>
+        <hr>
+        <div class="mcontent">
+            <form id="signupForm">
+                <label for="userName">Ім'я</label>
+                <input type="text" id="nameInput" name="userName">
+                <label for="userLogin">Логін</label>
+                <input type="text" id="s_loginInput" name="userLogin">
+                <label for="userPassword">Пароль</label>
+                <input type="password" id="s_passwordInput" name="userPassword">
+            </form>
+        <hr>
+        <div class="mfooter">
+            <button class="signup-button" id="createUserBtn" onclick="confirmSignupForm()">Створити аккаунт</button>
+        </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <aside class="sidebar">
+            <ul>
+                <li id="f_creator">
+                    <p>Країна-виробник</p>
+                    <div id="sidebarCreator">
+                    </div>
+                </li>
+                
+                <li id="f_type">
+                    <p>Тип</p>
+                    <div id="sidebarType">
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <main class="container-fluid">
+            <div>
+                <label for="sortBy">Сортувати</label>
+                <select id="sorting" name="sortBy">
+                    <option value="empty"></option>
+                    <option value="name">За назвою</option>
+                    <option value="name_d">За назвою (по спаданню)</option>
+                    <option value="price">За ціною</option>
+                    <option value="price_d">За ціною (по спаданню)</option>
+                </select>
+            </div>
+            <div class="row content-row">
+
+            </div>
+            <nav class="d-flex justify-content-center" style="margin-top: 20px;">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" onclick="openPage(-1)">Previous</a></li>
+                  <li class="page-item"><a class="page-link" onclick="openPage(0, 0)">1</a></li>
+                  <li class="page-item active" id="currentLink"><a class="page-link">1</a></li>
+                  <li class="page-item" id="maxLink"></li>
+                  <li class="page-item"><a class="page-link" onclick="openPage(1)">Next</a></li>
+                </ul>
+            </nav>
+        </main>
+    </div> 
+    <script src="js/userController.js"></script>
+    <script src="js/coller.js"></script>
+    <script src="js/search_sort.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/toggle.js"></script>
+</body>
+</html>

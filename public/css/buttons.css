@@ -1,0 +1,78 @@
+.button {
+  padding: 10px 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+.green-btn {
+  background-color: #107C10;
+  min-width: 112px;
+}
+
+.confirm-button, .login-button, .signup-button {
+  border: 0px solid black;
+  border-radius: 5px;
+  background-color: #107C10;
+  color: white;
+  font-size: 20px;
+  transition: all .1s ease-in;
+}
+
+.signup-button{
+  background-color: cornflowerblue;
+}
+
+.confirm-button:hover, .login-button:hover{
+  background-color: #19B516;
+}
+
+.signup-button:hover{
+  background-color: cyan;
+}
+
+.cancel-button {
+  border: 0px solid black;
+  border-radius: 5px;
+  background-color: crimson;
+  color: white;
+  font-size: 20px;
+}
+
+.cancel-button:hover {
+  background-color: red;
+}
+
+.red-btn {
+  border-radius: 20px;
+  padding: 3px;
+  margin-left: 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  height: 30px;
+  min-width: 30px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  background-color: red;
+}
+
+.green-btn:hover {
+  background-color: #19B516;
+}
+
+#search {
+  font-size: 16px;
+  padding-left: 7px;
+  width: 250px;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+}
+
+#search:focus {
+  border: 1px solid #19B516;
+}
