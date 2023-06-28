@@ -2,21 +2,27 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 const cloudinary = require("cloudinary").v2;
+require('dotenv').config()
 
-const dbUrl = 'mongodb+srv://admin:admin123@cluster0.yqrjwor.mongodb.net/Coller'
+const dbUrl = process.env.DB_URL
 
 cloudinary.config({ 
-    cloud_name: 'dtj8b4srd', 
-    api_key: '545831795372558', 
-    api_secret: 'Irr3v4LrZmuCuxy-i-FKRln9EIE' 
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET 
 });
 
 const app = express()
 //const jsonParser = express.json();
 
+const collerController = require('./coller_back')
+const userController = require('./users_back')
+
+app.use('/coller', collerController)
+app.use('/user', userController)
 app.use(express.static(path.join(__dirname, '/public')));
 
-const PORT = process.env.PORT || 3000
+const PORT = 3000; //process.env.PORT || 3000
 
 mongoose.connect(dbUrl)
 .then((res) => { 

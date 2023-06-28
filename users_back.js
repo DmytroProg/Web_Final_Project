@@ -1,7 +1,10 @@
 const UserModel = require('./models/userModel')
 const formidable = require("formidable");
+const express = require('express')
 
-app.post('/user', (req, res) => {
+const app = express.Router();
+
+app.post('/', (req, res) => {
     const form = formidable({
         multiples: true,                    
         keepExtensions: true,              
@@ -37,7 +40,7 @@ app.post('/user', (req, res) => {
     })
 })
 
-app.get('/user/:login', async (req, res) => {
+app.get('/:login', async (req, res) => {
     try{
         const object = await UserModel.find({ login: req.params.login})
         res.json(object)
@@ -46,7 +49,7 @@ app.get('/user/:login', async (req, res) => {
     }
 })
 
-app.get('/user/:login/:password', async (req, res) => {
+app.get('/:login/:password', async (req, res) => {
     try {
       const object = await UserModel.find({ login: req.params.login, password: req.params.password });
       res.json(object);
@@ -55,3 +58,5 @@ app.get('/user/:login/:password', async (req, res) => {
       res.status(500).json({ error: 'Failed to find the user' });
     }
   });
+
+  module.exports = app;

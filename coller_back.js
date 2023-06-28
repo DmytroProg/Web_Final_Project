@@ -1,8 +1,11 @@
 const CollerModel = require('./models/collerModel')
 const formidable = require("formidable");
 const cloudinary = require("cloudinary").v2;
+const express = require('express')
 
-app.post('/coller/:id', async (req, res) => {
+const app = express.Router();
+
+app.post('/:id', async (req, res) => {
     console.log('delete')
     try {
       const object = await CollerModel.findById(req.params.id);
@@ -14,7 +17,7 @@ app.post('/coller/:id', async (req, res) => {
     }
 });
 
-app.post("/coller", (req, res) => {
+app.post("/", (req, res) => {
 
     const form = formidable({
         multiples: true,                    
@@ -67,7 +70,7 @@ app.post("/coller", (req, res) => {
     });
 });
 
-app.get('/coller/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {
     try {
       const object = await CollerModel.findById(req.params.id);
       res.json(object);
@@ -76,7 +79,7 @@ app.get('/coller/:id', async (req, res) => {
     }
 });
 
-app.get('/coller/page/:index', (req, res) => {
+app.get('/page/:index', (req, res) => {
     
     CollerModel.find().sort({ createdAt: -1 }).skip(req.params.index*3).limit(3)
     .then(docs => {
@@ -87,7 +90,7 @@ app.get('/coller/page/:index', (req, res) => {
     })
 })
 
-app.get('/coller', (req, res) => {
+app.get('/', (req, res) => {
     
     CollerModel.count().then(c => res.json(Math.floor(c / 3)))
 })
@@ -139,3 +142,5 @@ function saveDataToDB(productId, data, res){
         })
     }
 }
+
+module.exports = app;
